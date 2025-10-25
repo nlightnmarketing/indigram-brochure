@@ -9,7 +9,9 @@
         :root {
             --ink: #1a1a1a;
             --paper: #f8f5ed;
-            --accent: #d4380d;
+            --accent: #fcb900;
+            --accent-dark: #ff6900;
+            --accent-gradient: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
             --muted: #8c8c8c;
             --highlight: #fff8e1;
         }
@@ -81,7 +83,7 @@
             left: 0;
             width: 0;
             height: 4px;
-            background: var(--accent);
+            background: var(--accent-gradient);
             animation: expandLine 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
         }
         
@@ -251,7 +253,7 @@
             left: -100%;
             width: 200%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            background: linear-gradient(90deg, transparent, rgba(252, 185, 0, 0.05), transparent);
             animation: shimmer 3s infinite;
         }
         
@@ -272,6 +274,56 @@
             font-size: 1.3rem;
             font-weight: 300;
             opacity: 0.9;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .grain {
+                display: none;
+            }
+            
+            .masthead,
+            .mission-block,
+            .section,
+            .closing {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .service {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .member {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .project {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .section {
+                page-break-after: auto;
+            }
+            
+            .team-grid {
+                page-break-before: always;
+            }
+            
+            .closing {
+                page-break-before: always;
+            }
+            
+            * {
+                animation: none !important;
+                opacity: 1 !important;
+            }
         }
         
         @media (max-width: 768px) {
